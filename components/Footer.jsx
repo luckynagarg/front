@@ -5,13 +5,11 @@ import Logo from "@/public/Logo.png";
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-slate-950 text-slate-300">
-
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-14 lg:px-8">
-
         {/* Main Footer */}
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
 
@@ -22,6 +20,7 @@ const Footer = () => {
                 src={Logo}
                 alt="HealthO Logo"
                 className="h-14 w-auto object-contain"
+                priority
               />
 
               <span className="ml-3 text-2xl font-bold text-white">
@@ -35,32 +34,14 @@ const Footer = () => {
             </p>
 
             <div className="mt-6 flex gap-3">
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full
-                border border-slate-700 bg-slate-900
-                transition hover:border-cyan-400 hover:text-cyan-400"
-              >
-                f
-              </a>
 
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full
-                border border-slate-700 bg-slate-900
-                transition hover:border-cyan-400 hover:text-cyan-400"
+              <Link
+                href="www.linkedin.com/in/luckynagarg"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900 transition hover:border-cyan-400 hover:text-cyan-400"
               >
                 in
-              </a>
+              </Link>
 
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full
-                border border-slate-700 bg-slate-900
-                transition hover:border-cyan-400 hover:text-cyan-400"
-              >
-                X
-              </a>
             </div>
           </div>
 
@@ -72,19 +53,13 @@ const Footer = () => {
 
             <ul className="space-y-3 text-sm">
               <li>
-                <Link
-                  href="/"
-                  className="transition hover:text-cyan-400"
-                >
+                <Link href="/" className="transition hover:text-cyan-400">
                   Home
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/doctors"
-                  className="transition hover:text-cyan-400"
-                >
+                <Link href="/doctors" className="transition hover:text-cyan-400">
                   Find Doctors
                 </Link>
               </li>
@@ -108,10 +83,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <Link
-                  href="/about"
-                  className="transition hover:text-cyan-400"
-                >
+                <Link href="/about" className="transition hover:text-cyan-400">
                   About Us
                 </Link>
               </li>
@@ -179,7 +151,6 @@ const Footer = () => {
             </h3>
 
             <div className="space-y-4 text-sm">
-
               <div className="flex gap-3">
                 <span className="text-cyan-400">📍</span>
                 <p className="text-slate-400">
@@ -191,35 +162,30 @@ const Footer = () => {
 
               <div className="flex gap-3">
                 <span className="text-cyan-400">☎</span>
-                <a
+                <Link
                   href="tel:+911234567890"
                   className="transition hover:text-cyan-400"
                 >
                   +91 12345 67890
-                </a>
+                </Link>
               </div>
 
               <div className="flex gap-3">
                 <span className="text-cyan-400">✉</span>
-                <a
+                <Link
                   href="mailto:care@healtho.com"
                   className="transition hover:text-cyan-400"
                 >
                   care@healtho.com
-                </a>
+                </Link>
               </div>
 
-              <div className="mt-5 inline-flex items-center gap-2 rounded-full
-                border border-emerald-400/20 bg-emerald-400/10
-                px-4 py-2 text-xs text-emerald-400"
-              >
+              <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs text-emerald-400">
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
                 Available 24/7
               </div>
-
             </div>
           </div>
-
         </div>
 
         {/* Divider */}
@@ -227,7 +193,6 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="flex flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
-
           <p className="text-slate-500">
             © {new Date().getFullYear()} HealthO. All rights reserved.
           </p>
@@ -247,9 +212,7 @@ const Footer = () => {
               Terms of Service
             </Link>
           </div>
-
         </div>
-
       </div>
     </footer>
   );

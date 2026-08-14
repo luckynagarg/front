@@ -3,6 +3,7 @@ import InteractiveBackground from "@/components/Bg";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
 
+
 export default function Home() {
   return (<>
     <InteractiveBackground>
