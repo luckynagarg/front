@@ -27,7 +27,7 @@ export default function HomePage() {
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <Button href="/signup">Get Started</Button>
+                <Button href="/pages/signup">Get Started</Button>
 
                 <Button href="#services" variant="secondary">
                   Explore HealthO
@@ -150,7 +150,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8">
-              <Button href="/signup">Create your account</Button>
+              <Button href="/pages/signup">Create your account</Button>
             </div>
           </div>
         </section>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Activity,
   CalendarDays,
@@ -9,7 +10,7 @@ import {
 
 import UserSidebar from "@/components/layout/UserSidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import StatCard from "@/components/dashboard/StartCard";
+import StatCard from "@/components/dashboard/StatCard";
 import AppointmentCard from "@/components/dashboard/AppointmentCard";
 
 export default function UserDashboardPage() {
@@ -43,19 +44,19 @@ export default function UserDashboardPage() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <button
-                type="button"
+              <Link
+                href="/user/doctors"
                 className="rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
               >
                 Book appointment
-              </button>
+              </Link>
 
-              <button
-                type="button"
+              <Link
+                href="/user/medical-records"
                 className="rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 View records
-              </button>
+              </Link>
             </div>
           </section>
 

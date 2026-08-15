@@ -10,7 +10,7 @@ import {
   MapPin,
   Video,
 } from "lucide-react";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { appointmentSlots, doctors } from "@/lib/mockData";
 
 const dates = [
@@ -22,6 +22,14 @@ const dates = [
 ];
 
 export default function BookAppointmentPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+      <BookAppointmentContent />
+    </Suspense>
+  );
+}
+
+function BookAppointmentContent() {
   const searchParams = useSearchParams();
   const doctorId = searchParams.get("doctor");
 
@@ -263,14 +271,14 @@ function ConsultationType({
   onClick,
 }: {
   active: boolean;
-icon: React.ComponentType<{
-  size?: number;
-  className?: string;
-  strokeWidth?: number;
-}>;
-    title: string;
-    description: string;
-    onClick: () => void;
+  icon: React.ComponentType<{
+    size?: number;
+    className?: string;
+    strokeWidth?: number;
+  }>;
+  title: string;
+  description: string;
+  onClick: () => void;
 }) {
   return (
     <button
@@ -373,7 +381,7 @@ function Confirmation({
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/user/appointments"
+                href="/user/appointment"
                 className="flex h-12 flex-1 items-center justify-center rounded-xl bg-slate-950 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 View appointments

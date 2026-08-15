@@ -32,7 +32,6 @@ export default async function DoctorProfilePage({
     <div className="min-h-screen bg-slate-50">
       <div className="lg:pl-64">
         <main className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
-
           <Link
             href="/user/doctors"
             className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition hover:text-slate-950"
@@ -89,7 +88,6 @@ export default async function DoctorProfilePage({
           </section>
 
           <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_380px]">
-
             {/* About */}
             <div className="space-y-6">
               <section className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
@@ -108,21 +106,10 @@ export default async function DoctorProfilePage({
                 </h2>
 
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  <Service
-                    title="General consultation"
-                  />
-
-                  <Service
-                    title="Follow-up consultation"
-                  />
-
-                  <Service
-                    title="Preventive healthcare"
-                  />
-
-                  <Service
-                    title="Health assessment"
-                  />
+                  <Service title="General consultation" />
+                  <Service title="Follow-up consultation" />
+                  <Service title="Preventive healthcare" />
+                  <Service title="Health assessment" />
                 </div>
               </section>
             </div>
@@ -150,24 +137,13 @@ export default async function DoctorProfilePage({
               </div>
 
               <div className="mt-5 space-y-3">
-                <Info
-                  icon={CalendarDays}
-                  text="Flexible appointment slots"
-                />
-
-                <Info
-                  icon={Video}
-                  text="In-person or online"
-                />
-
-                <Info
-                  icon={CheckCircle2}
-                  text="Verified doctor"
-                />
+                <Info icon={CalendarDays} text="Flexible appointment slots" />
+                <Info icon={Video} text="In-person or online" />
+                <Info icon={CheckCircle2} text="Verified doctor" />
               </div>
 
               <Link
-                href={`/user/appointments/book?doctor=${doctor.id}`}
+                href={`/user/appointment/book?doctor=${doctor.id}`}
                 className="mt-7 flex h-12 w-full items-center justify-center rounded-xl bg-slate-950 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Choose date & time
@@ -185,9 +161,7 @@ function Service({ title }: { title: string }) {
     <div className="flex items-center gap-3 rounded-xl bg-slate-50 p-4">
       <CheckCircle2 size={17} className="text-cyan-700" />
 
-      <span className="text-sm font-medium text-slate-700">
-        {title}
-      </span>
+      <span className="text-sm font-medium text-slate-700">{title}</span>
     </div>
   );
 }

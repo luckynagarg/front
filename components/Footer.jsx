@@ -28,7 +28,7 @@ export default function Footer() {
                 How it works
               </Link>
 
-              <Link href="/login" className="hover:text-white">
+              <Link href="/pages/login" className="hover:text-white">
                 Login
               </Link>
             </div>

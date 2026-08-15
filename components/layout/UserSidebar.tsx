@@ -11,7 +11,6 @@ import {
   LogOut,
   Pill,
   Search,
-  Settings,
   UserRound,
 } from "lucide-react";
 
@@ -23,7 +22,7 @@ const menuItems = [
   },
   {
     label: "Appointments",
-    href: "/user/appointments",
+    href: "/user/appointment",
     icon: CalendarDays,
   },
   {

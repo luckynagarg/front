@@ -44,14 +44,14 @@ export default function Navbar() {
         {/* Actions */}
         <div className="flex items-center gap-3">
           <Link
-            href="/login"
+            href="/pages/login"
             className="hidden text-sm font-semibold text-slate-700 transition hover:text-slate-950 sm:block"
           >
             Login
           </Link>
 
           <Link
-            href="/signup"
+            href="/pages/signup"
             className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
             Get Started

@@ -51,7 +51,7 @@ const InteractiveBackground = ({
             ),
             linear-gradient(
               90deg,
-              rgba(144, 516, 144, 0.18) 1px,
+              rgba(14, 116, 144, 0.18) 1px,
               transparent 1px
             )
           `,

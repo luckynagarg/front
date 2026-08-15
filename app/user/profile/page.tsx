@@ -243,7 +243,11 @@ function SectionHeading({
 type InputFieldProps = {
   label: string;
   value: string;
-  icon?: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  icon?: React.ComponentType<{
+    size?: number;
+    strokeWidth?: number;
+    className?: string;
+  }>;
   type?: string;
 };
 
@@ -259,12 +263,13 @@ function InputField({
         {label}
       </label>
 
-      <div className="relative left-4 top-1/2 -translate-y-1/2 text-slate-400">
+      <div className="relative">
         {Icon ? (
           <Icon
             size={17}
-             strokeWidth={1.8}
-            />
+            strokeWidth={1.8}
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+          />
         ) : null}
 
         <input
