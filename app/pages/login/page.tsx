@@ -7,15 +7,15 @@ import { login } from "@/lib/dashboardStorage";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!email.trim() || !password.trim()) {
-      setError("Please enter your email and password.");
+    if (!name.trim() || !password.trim()) {
+      setError("Please enter your name and password.");
       return;
     }
 
@@ -84,18 +84,18 @@ export default function LoginPage() {
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="name"
                   className="mb-2 block text-sm font-medium text-slate-700"
                 >
-                  Email
+                  Name
                 </label>
 
                 <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="you@example.com"
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="Your name"
                   className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition placeholder:text-slate-400 focus:border-cyan-600 focus:ring-4 focus:ring-cyan-600/10"
                 />
               </div>
