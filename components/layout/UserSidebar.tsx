@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { logout } from "@/lib/dashboardStorage";
 import {
   CalendarDays,
   ClipboardList,
@@ -54,6 +55,13 @@ const menuItems = [
 
 export default function UserSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/pages/login");
+    router.refresh();
+  };
 
   return (
     <aside className="fixed inset-y-0 left-0 hidden w-64 border-r border-slate-200 bg-white lg:flex lg:flex-col">
@@ -110,6 +118,7 @@ export default function UserSidebar() {
 
         <button
           type="button"
+          onClick={handleLogout}
           className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-500 transition hover:bg-red-50 hover:text-red-600"
         >
           <LogOut size={18} />

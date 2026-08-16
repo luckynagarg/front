@@ -1,10 +1,33 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { login } from "@/lib/dashboardStorage";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!email.trim() || !password.trim()) {
+      setError("Please enter your email and password.");
+      return;
+    }
+
+    // Frontend-only mock authentication.
+    login();
+    router.push("/user/dashboard");
+    router.refresh();
+  };
+
   return (
     <main className="min-h-screen bg-slate-950">
       <div className="grid min-h-screen lg:grid-cols-2">
-
         {/* Left side */}
         <section className="hidden flex-col justify-between p-10 lg:flex">
           <Link
@@ -31,15 +54,12 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <p className="font-mono text-xs text-slate-600">
-            HEALTHO / 2026
-          </p>
+          <p className="font-mono text-xs text-slate-600">HEALTHO / 2026</p>
         </section>
 
         {/* Right side */}
         <section className="flex items-center justify-center bg-slate-50 px-6 py-12">
           <div className="w-full max-w-md">
-
             <div className="mb-8">
               <Link
                 href="/"
@@ -61,7 +81,7 @@ export default function LoginPage() {
               </p>
             </div>
 
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="email"
@@ -73,6 +93,8 @@ export default function LoginPage() {
                 <input
                   id="email"
                   type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="you@example.com"
                   className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition placeholder:text-slate-400 focus:border-cyan-600 focus:ring-4 focus:ring-cyan-600/10"
                 />
@@ -98,10 +120,18 @@ export default function LoginPage() {
                 <input
                   id="password"
                   type="password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                   placeholder="Enter your password"
                   className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition placeholder:text-slate-400 focus:border-cyan-600 focus:ring-4 focus:ring-cyan-600/10"
                 />
               </div>
+
+              {error && (
+                <p className="rounded-lg bg-red-50 px-3 py-2 text-xs font-medium text-red-700">
+                  {error}
+                </p>
+              )}
 
               <button
                 type="submit"
