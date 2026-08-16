@@ -19,7 +19,15 @@ function readSession(): SessionUser | null {
   try {
     const raw = window.localStorage.getItem(SESSION_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as SessionUser;
+    // Backward compatibility: old system stored boolean true/false.
+    if (raw === "true") {
+      return { name: "User", role: "PATIENT" };
+    }
+    const parsed = JSON.parse(raw) as SessionUser;
+    if (parsed && typeof parsed.name === "string" && parsed.role) {
+      return parsed;
+    }
+    return null;
   } catch {
     return null;
   }

@@ -60,16 +60,16 @@ export const currentUser: PatientProfile = {
   name: "Harry",
   patientId: "HO-2026-00123",
   cardNumber: "HO-PAT-00123",
-  dateOfBirth: "12 May 2001",
-  gender: "Male",
+  dateOfBirth: "26 jan 1947",
+  gender: "E-Male",
   bloodGroup: "O+",
   email: "harry@example.com",
   phone: "+91 98765 43210",
-  address: "123 Healthcare Street, Delhi 110001",
-  accountCreated: "14 Jan 2026",
+  address: "hapur chungi se rajnagar se kahin toh h suar",
+  accountCreated: "15 aug 2026",
   verifiedBy: "Dr. lucky ",
   verifiedAt: "16 Aug 2026",
-  initials: "H",
+  initials: "SH",
 };
 
 export const reportTypes = [
@@ -110,11 +110,11 @@ export const initialReports: MedicalReport[] = [
     type: "Imaging Report",
     date: "12 Aug 2026",
     fileName: "xray-report.jpg",
-    notes: "Chest X-ray, frontal view.",
+    notes: "Butt X-ray, back view.",
     verification: {
-      status: "verified",
-      verifiedBy: "Dr. lucky ",
-      verifiedAt: "12 Aug 2026",
+        status: "verified",
+        verifiedBy: "Dr. lucky ",
+        verifiedAt: "12 Aug 2026",
     },
   },
 ];
