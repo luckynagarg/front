@@ -6,11 +6,15 @@ export default function SignupLayout({
   title,
   description,
   children,
+  backHref,
+  backLabel,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   children: ReactNode;
+  backHref?: string;
+  backLabel?: string;
 }) {
   return (
     <main className="min-h-screen bg-slate-950">
@@ -65,6 +69,14 @@ export default function SignupLayout({
             </div>
 
             {children}
+
+            {backHref && backLabel && (
+              <p className="mt-8 text-center text-sm text-slate-500">
+                <Link href={backHref} className="font-semibold text-cyan-700 hover:text-cyan-800">
+                  {backLabel}
+                </Link>
+              </p>
+            )}
           </div>
         </section>
       </div>

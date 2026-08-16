@@ -25,6 +25,7 @@ export interface Doctor {
   experience: string;
   registrationId: string;
   role: "DOCTOR";
+  initials?: string;
 }
 
 export interface Hospital {
@@ -220,6 +221,10 @@ export function getHospitals(): Hospital[] {
   return read<Hospital[]>(KEYS.hospitals, []);
 }
 
+export function getHospital(id: string): Hospital | undefined {
+  return getHospitals().find((h) => h.id === id);
+}
+
 export function addHospital(hospital: Hospital): Hospital[] {
   const hospitals = [hospital, ...getHospitals()];
   write(KEYS.hospitals, hospitals);
@@ -231,6 +236,10 @@ export function getLabs(): Lab[] {
   return read<Lab[]>(KEYS.labs, []);
 }
 
+export function getLab(id: string): Lab | undefined {
+  return getLabs().find((l) => l.id === id);
+}
+
 export function addLab(lab: Lab): Lab[] {
   const labs = [lab, ...getLabs()];
   write(KEYS.labs, labs);
@@ -240,6 +249,10 @@ export function addLab(lab: Lab): Lab[] {
 // --- Pharmacies ---
 export function getPharmacies(): Pharmacy[] {
   return read<Pharmacy[]>(KEYS.pharmacies, []);
+}
+
+export function getPharmacy(id: string): Pharmacy | undefined {
+  return getPharmacies().find((p) => p.id === id);
 }
 
 export function addPharmacy(pharmacy: Pharmacy): Pharmacy[] {
@@ -391,6 +404,16 @@ export function updateAppointmentStatus(
   return appointments;
 }
 
+export function cancelAppointment(id: string): Appointment[] {
+  const appointments = getAppointments().map((appointment) =>
+    appointment.id === id
+      ? { ...appointment, status: "Cancelled" as const }
+      : appointment
+  );
+  write(KEYS.appointments, appointments);
+  return appointments;
+}
+
 // --- Notifications ---
 export function getNotifications(userId: string): Notification[] {
   return read<Notification[]>(KEYS.notifications, []).filter(
@@ -448,6 +471,7 @@ export function seedDataIfEmpty() {
       experience: "12 years",
       registrationId: "MED-12345",
       role: "DOCTOR",
+      initials: "AV",
     });
     addDoctor({
       id: "DOC-002",
@@ -460,6 +484,7 @@ export function seedDataIfEmpty() {
       experience: "15 years",
       registrationId: "MED-12346",
       role: "DOCTOR",
+      initials: "SK",
     });
     addDoctor({
       id: "DOC-003",
@@ -472,6 +497,7 @@ export function seedDataIfEmpty() {
       experience: "8 years",
       registrationId: "MED-12347",
       role: "DOCTOR",
+      initials: "RM",
     });
   }
 

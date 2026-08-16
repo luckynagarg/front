@@ -67,7 +67,7 @@ export const currentUser: PatientProfile = {
   phone: "+91 98765 43210",
   address: "123 Healthcare Street, Delhi 110001",
   accountCreated: "14 Jan 2026",
-  verifiedBy: "Dr. Alex Verma",
+  verifiedBy: "Dr. lucky ",
   verifiedAt: "16 Aug 2026",
   initials: "H",
 };
@@ -100,7 +100,7 @@ export const initialReports: MedicalReport[] = [
     notes: "Complete blood count and routine blood panel.",
     verification: {
       status: "verified",
-      verifiedBy: "Dr. Alex Verma",
+      verifiedBy: "Dr. lucky ",
       verifiedAt: "16 Aug 2026",
     },
   },
@@ -113,7 +113,7 @@ export const initialReports: MedicalReport[] = [
     notes: "Chest X-ray, frontal view.",
     verification: {
       status: "verified",
-      verifiedBy: "Dr. Alex Verma",
+      verifiedBy: "Dr. lucky ",
       verifiedAt: "12 Aug 2026",
     },
   },

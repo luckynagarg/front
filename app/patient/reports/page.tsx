@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FileText, Search, Plus, Eye } from "lucide-react";
+import { FileText, Search, Plus, Eye, X } from "lucide-react";
 import RoleShell from "@/components/dashboard/RoleShell";
 import { getSession } from "@/lib/auth";
 import {
@@ -308,7 +308,7 @@ function ReportForm({
     }
 
     onAdded({
-      id: nextId("RPT"),
+      id: nextLabId(),
       patientId: "PAT-001",
       testName: title.trim(),
       reportType: type,
