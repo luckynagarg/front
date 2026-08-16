@@ -97,7 +97,7 @@ export default function AppointmentsPage() {
               </h2>
 
               <p className="mt-2 text-sm text-slate-500">
-                You don't have any appointments in this category.
+                {"You don't have any appointments in this category."}
               </p>
             </div>
           )}

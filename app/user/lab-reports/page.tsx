@@ -8,7 +8,6 @@ import {
   ChevronUp,
   Download,
   FlaskConical,
-  FileText,
 } from "lucide-react";
 import { useState } from "react";
 import { labReports } from "@/lib/mockData";

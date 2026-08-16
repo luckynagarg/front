@@ -100,7 +100,7 @@ export default function PrescriptionsPage() {
                           </h3>
 
                           <p className="text-xs text-slate-500">
-                            Follow your doctor's instructions.
+                            {"Follow your doctor's instructions."}
                           </p>
                         </div>
                       </div>
@@ -170,7 +170,7 @@ export default function PrescriptionsPage() {
 
                           <div>
                             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                              Doctor's notes
+                              {"Doctor's notes"}
                             </p>
 
                             <p className="mt-2 text-sm leading-6 text-slate-600">
