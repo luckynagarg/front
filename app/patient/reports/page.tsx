@@ -9,6 +9,7 @@ import { getSession } from "@/lib/auth";
 import {
   getLabReports,
   addLabReport,
+  nextLabId,
   type LabReport,
 } from "@/services/data";
 

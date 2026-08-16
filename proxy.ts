@@ -11,11 +11,18 @@ const SIGNUP_ROUTES = [
   "/signup/lab",
   "/signup/pharmacy",
 ];
+const OLD_ROUTES = ["/pages", "/user"];
 
 function isPublicRoute(pathname: string): boolean {
   if (PUBLIC_ROUTES.includes(pathname)) return true;
   if (pathname.startsWith("/_next") || pathname.startsWith("/favicon")) return true;
   return false;
+}
+
+function isOldRoute(pathname: string): boolean {
+  return OLD_ROUTES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(prefix + "/")
+  );
 }
 
 function isSignupRoute(pathname: string): boolean {
@@ -37,11 +44,17 @@ function getRoleFromPath(pathname: string): string | null {
   return roleMap[segments[0]] ?? null;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const session = getSession();
 
+  // Old routes: no proxy enforcement, let client-side auth handle it
+  if (isOldRoute(pathname)) {
+    return NextResponse.next();
+  }
+
+  // Public routes: allow through
   if (isPublicRoute(pathname)) {
+    const session = getSession();
     if (session && (pathname === "/login" || pathname === "/signup")) {
       const roleHome = redirectPathForRole(session.role);
       return NextResponse.redirect(new URL(roleHome, request.url));
@@ -49,10 +62,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Signup routes: allow through
   if (isSignupRoute(pathname)) {
     return NextResponse.next();
   }
 
+  // New role-based routes: require auth
+  const session = getSession();
   if (!session) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
